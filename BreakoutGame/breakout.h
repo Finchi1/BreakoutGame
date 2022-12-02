@@ -8,37 +8,36 @@ public:
 	Breakout(QWidget* parent = nullptr);
 	~Breakout();
 private:
-	static const int M_WIDTH = 300; // ширина виджета
-	static const int M_HEIGHT = 400; // высота виджета
-	static const int M_PADDLE_STEP = 10; // шаг движения ракетки
-	static const int M_BRICKS_IN_WIDTH = 6; // количество кирпичей по горизонтали
-	static const int M_BRICKS_IN_HEIGHT = 5; // количество кирпичей по вертикали
-	static const int M_PADDLE_Y_FROM_BOTTOM_BORDER = 50; // расстояние от нижней границы виджета до ракетки
-	static const int M_BRICK_Y_FROM_TOP_BORDER = 50; // расстоянеие от верхней границы виджета до кирпича
-	static const int M_DELAY = 10; // задержка для таймера
+	static const int M_WIDTH = 300; // С€РёСЂРёРЅР° РІРёРґР¶РµС‚Р°
+	static const int M_HEIGHT = 400; // РІС‹СЃРѕС‚Р° РІРёРґР¶РµС‚Р°
+	static const int M_PADDLE_STEP = 10; // С€Р°Рі РґРІРёР¶РµРЅРёСЏ СЂР°РєРµС‚РєРё
+	static const int M_BRICKS_IN_WIDTH = 6; // РєРѕР»РёС‡РµСЃС‚РІРѕ РєРёСЂРїРёС‡РµР№ РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё
+	static const int M_BRICKS_IN_HEIGHT = 5; // РєРѕР»РёС‡РµСЃС‚РІРѕ РєРёСЂРїРёС‡РµР№ РїРѕ РІРµСЂС‚РёРєР°Р»Рё
+	static const int M_PADDLE_Y_FROM_BOTTOM_BORDER = 50; // СЂР°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ РЅРёР¶РЅРµР№ РіСЂР°РЅРёС†С‹ РІРёРґР¶РµС‚Р° РґРѕ СЂР°РєРµС‚РєРё
+	static const int M_BRICK_Y_FROM_TOP_BORDER = 50; // СЂР°СЃСЃС‚РѕСЏРЅРµРёРµ РѕС‚ РІРµСЂС…РЅРµР№ РіСЂР°РЅРёС†С‹ РІРёРґР¶РµС‚Р° РґРѕ РєРёСЂРїРёС‡Р°
+	static const int M_DELAY = 10; // Р·Р°РґРµСЂР¶РєР° РґР»СЏ С‚Р°Р№РјРµСЂР°
 private:
-	void newGame(); // начать новую игру
-	void startGame(); // запустить таймер
-	void pauseGame(); // остановить игру
-	void ballMove(); // движение мяча
-	void checkBallTouch(); // проверка на столкновение мяча с объектами и стенами
-	void paintGameField(QPainter* painter); // рисует игровое поле
-	void paintText(QPainter* painter, qreal x, qreal y, QString text, QFont font, QColor pen, QColor brush); // рисует текст
+	void newGame(); // РЅР°С‡Р°С‚СЊ РЅРѕРІСѓСЋ РёРіСЂСѓ
+	void startGame(); // Р·Р°РїСѓСЃС‚РёС‚СЊ С‚Р°Р№РјРµСЂ
+	void pauseGame(); // РѕСЃС‚Р°РЅРѕРІРёС‚СЊ РёРіСЂСѓ
+	void ballMove(); // РґРІРёР¶РµРЅРёРµ РјСЏС‡Р°
+	void checkBallTouch(); // РїСЂРѕРІРµСЂРєР° РЅР° СЃС‚РѕР»РєРЅРѕРІРµРЅРёРµ РјСЏС‡Р° СЃ РѕР±СЉРµРєС‚Р°РјРё Рё СЃС‚РµРЅР°РјРё
+	void paintGameField(QPainter* painter); // СЂРёСЃСѓРµС‚ РёРіСЂРѕРІРѕРµ РїРѕР»Рµ
+	void paintText(QPainter* painter, qreal x, qreal y, QString text, QFont font, QColor pen, QColor brush); // СЂРёСЃСѓРµС‚ С‚РµРєСЃС‚
 private:
-	void paintEvent(QPaintEvent* event); // обработчик события перерисовки
-	void timerEvent(QTimerEvent* event); // обработчик события тика таймера
-	void keyPressEvent(QKeyEvent* event); // обработчик события нажатия на кнопку
+	void paintEvent(QPaintEvent* event); // РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёСЏ РїРµСЂРµСЂРёСЃРѕРІРєРё
+	void timerEvent(QTimerEvent* event); // РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёСЏ С‚РёРєР° С‚Р°Р№РјРµСЂР°
+	void keyPressEvent(QKeyEvent* event); // РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёСЏ РЅР°Р¶Р°С‚РёСЏ РЅР° РєРЅРѕРїРєСѓ
 private:
-	Item* m_paddle; // ракетка
-	QList<Item*> m_bricks; // список с кирпичами :)
-	Item* m_ball; // мячик
-	int m_xdir; // направление движения мячика по оси x
-	int m_ydir; // направление движения мячика по оси y
-	int m_timerID; // ID таймера
-	int m_score; // счет отчков
-	int m_score_mult; // мультипликатор для начисления очков
-	bool m_game_over; // игра окончена
-	bool m_paused; // игра на паузе
-	bool m_new_game; // новая игра
+	Item* m_paddle; // СЂР°РєРµС‚РєР°
+	QList<Item*> m_bricks; // СЃРїРёСЃРѕРє СЃ РєРёСЂРїРёС‡Р°РјРё :)
+	Item* m_ball; // РјСЏС‡РёРє
+	int m_xdir; // РЅР°РїСЂР°РІР»РµРЅРёРµ РґРІРёР¶РµРЅРёСЏ РјСЏС‡РёРєР° РїРѕ РѕСЃРё x
+	int m_ydir; // РЅР°РїСЂР°РІР»РµРЅРёРµ РґРІРёР¶РµРЅРёСЏ РјСЏС‡РёРєР° РїРѕ РѕСЃРё y
+	int m_timerID; // ID С‚Р°Р№РјРµСЂР°
+	int m_score; // СЃС‡РµС‚ РѕС‚С‡РєРѕРІ
+	int m_score_mult; // РјСѓР»СЊС‚РёРїР»РёРєР°С‚РѕСЂ РґР»СЏ РЅР°С‡РёСЃР»РµРЅРёСЏ РѕС‡РєРѕРІ
+	bool m_game_over; // РёРіСЂР° РѕРєРѕРЅС‡РµРЅР°
+	bool m_paused; // РёРіСЂР° РЅР° РїР°СѓР·Рµ
+	bool m_new_game; // РЅРѕРІР°СЏ РёРіСЂР°
 };
-
