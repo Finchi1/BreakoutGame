@@ -8,13 +8,12 @@ public:
 		: m_image(QImage()), m_cords(QPoint(0, 0))
 	{}
 public:
-	// Геттеры/сеттеры
+	// Р“РµС‚С‚РµСЂС‹/СЃРµС‚С‚РµСЂС‹
 	QPoint getCords() { return m_cords; }
 	void setCords(QPoint cords) { m_cords = cords; }
 	QImage& getImage() { return m_image; }
 	void setImage(QImage image) { m_image = image; }
 private:
-	QPoint m_cords; // переменная для хранения координат предмета
-	QImage m_image; // переменная для хранения изображения предмета
+	QPoint m_cords; // РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєРѕРѕСЂРґРёРЅР°С‚ РїСЂРµРґРјРµС‚Р°
+	QImage m_image; // РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РїСЂРµРґРјРµС‚Р°
 };
-
